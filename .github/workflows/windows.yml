@@ -1,0 +1,30 @@
+name: Test Meson build (Windows)
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  meson:
+    name: Meson windows build/test
+    runs-on: windows-2019
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+    - name: Setup Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+
+    - name: Install dependencies
+      run: |
+        pip install meson ninja
+    - name: meson-configure
+      run: |
+        meson setup build
+    - name: meson-build
+      run: |
+        meson compile -C build -v
+    - name: Test
+      run: .\build\main
