@@ -22,7 +22,7 @@ jobs:
         pip install meson ninja
     - name: meson-configure
       run: |
-        meson setup build
+        meson setup build -Ddebug=false --optimization 2 --vsenv
     - name: meson-build
       run: |
         meson compile -C build -v
