@@ -1,7 +1,5 @@
 #include <stdio.h>
-#include <complex.h>
-
-typedef _Dcomplex npy_cdouble;
+#include <include/c.h>
 
 int main(void) {
     npy_cdouble x = _Cbuild(2.0f, 3.0f);
