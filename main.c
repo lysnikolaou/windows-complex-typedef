@@ -1,7 +1,6 @@
 #include <stdio.h>
-#include <include/c.h>
+#include <complex.h>
 
 int main(void) {
-    npy_cdouble x = _Cbuild(2.0f, 3.0f);
-    printf("%.2f + %.2fi\n", creal(x), cimag(x));
+    printf("%.2f + %.2fi\n", crealf(_Complex_I), cimagf(_Complex_I));
 }
